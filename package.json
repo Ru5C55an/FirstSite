@@ -1,0 +1,28 @@
+{
+  "name": "firstsite-webpack",
+  "version": "1.0.0",
+  "description": "webpack project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ru5C55an/FirstSite.git"
+  },
+  "keywords": [
+    "javascript",
+    "js",
+    "webpack"
+  ],
+  "author": "Ruslan Sadykov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ru5C55an/FirstSite/issues"
+  },
+  "homepage": "https://github.com/Ru5C55an/FirstSite#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
