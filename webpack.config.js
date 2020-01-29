@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 //Устанавлтваем плагины
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //Подключение плагина для переделывания .scss кода в .css
-const HTMLWebpackPlugin = require('html-webpack-plugin'); //Подключение плагина для создания index.html файла в dist в котор
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //Подключение плагина для создания index.html файла в dist в котор
 														 //ом будут подключаться актуальыне [name][contenthash].js и .css файлы
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); //Подключение плагина для очистки папки dist при каждой сборки
 const CopyWebpackPlugin = require('copy-webpack-plugin'); //Подключение плагина для копирования файлов или папок в другое место
@@ -90,13 +90,15 @@ const plugins = () => {
 				//Прописываем имена создаваемых файлов
 				filename: filename('css'),
 			}),
-	
+			/*
 			new HTMLWebpackPlugin({
-				template: './pages/index.html', //Выбираем откуда он будет брать index.html файл
+				filename: 'index.html',
+				template: './pug/pages/index.pug', //Выбираем откуда он будет брать index.html файл
 				minify: {
 					collapseWhitespace: isProd //Минимизация html в режиме продакшена
 				}
 			}),
+			*/
 	
 			new CleanWebpackPlugin(),
 	
@@ -105,7 +107,18 @@ const plugins = () => {
 					from: path.resolve(__dirname, 'src/favicon.ico'), //откуда. Это могут быть целые папки или отдельные файлы
 					to: path.resolve(__dirname, 'dist'), //куда
 				}
-			])
+			]),
+
+			// Automatic creation any html pages (Don't forget to RERUN dev server)
+    // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
+    // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
+    ...PAGES.map(page => new HtmlWebpackPlugin({
+		template: `${PAGES_DIR}/${page}`,
+		filename: `./${page.replace(/\.pug/,'.html')}`,
+		minify: {
+			collapseWhitespace: isProd //Минимизация html в режиме продакшена
+		}
+	  })),
 	]
 
 	if (isProd) {
@@ -114,6 +127,22 @@ const plugins = () => {
 
 	return base
 }
+//Настройки для пага
+// Main const
+// see more: https://github.com/vedees/webpack-template/blob/master/README.md#main-const
+const PATHS = {
+	src: path.join(__dirname, '/src'),
+	dist: path.join(__dirname, '/dist'),
+	assets: 'assets/'
+  }
+
+
+const fs = require('fs')
+// Pages const for HtmlWebpackPlugin
+// see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
+// const PAGES_DIR = PATHS.src
+const PAGES_DIR = `${PATHS.src}/pug/pages/`
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 
 //Настройка самого модуля
 module.exports = {
@@ -123,8 +152,8 @@ module.exports = {
 	//Точка входа в js
   	entry: {
 		//Основнлй файл приложения (основная точка входа)
-		app: [
-			  './index.js',
+		main: [
+			  './js/index.js',
 			  './scss/style.scss',
 			  '@babel/polyfill',
 		],
@@ -154,7 +183,7 @@ module.exports = {
 		//port: 4200, //Можно и не указывать
 		hot: isDev,
 		overlay: true, //Вывод ошибки не в консоли браузера, а поверх страницы сайта красным текстом
-		contentBase: './src/pages' //Путь к папке, где лежит index.html и прочие страницы
+		contentBase: './src/pug/pages' //Путь к папке, где лежит index.html и прочие страницы
 	},
 
 	//Создание исходных карт в случае если мы в режиме разработки
@@ -213,6 +242,15 @@ module.exports = {
 				test: /\.(png|jpg|svg|gif)$/,
 				loader: 'file-loader',
 			},
+
+			//Правило для случая, если webpack находит pug
+			{
+                test: /\.pug$/,
+                loader: 'pug-loader',
+                options: {
+                    pretty:true
+                }
+            },
 
 			//Правило для случая, если webpack находит шрифты
 			{
