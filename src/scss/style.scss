@@ -3,6 +3,8 @@ html, body {
 }
 
 body {
-    color: red;
-    background-color: gray;
+    color: black;
 }
+
+@import '../blocks/color-block/color-block.scss';
+@import '../fonts/Quicksand/Quicksand.scss';

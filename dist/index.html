@@ -1,127 +1,65 @@
-<head><link href="/dist/main.css" rel="stylesheet"></head>Html Webpack Plugin:
-<pre>
-  Error: Child compilation failed:
-  Module build failed (from ../node_modules/pug-loader/index.js):
-  Error: Can't resolve '../blocks/color-block/color-block.pug' in '/Users/ruslan/Desktop/WebDev/Git Repositories/FirstSite/src/pug/pages'
-  
-  - Resolver.js:209 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:209:21
-  
-  - Resolver.js:285 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:285:5
-  
-  
-  - UnsafeCachePlugin.js:44 
-    [FirstSite]/[enhanced-resolve]/lib/UnsafeCachePlugin.js:44:7
-  
-  - Resolver.js:285 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:285:5
-  
-  
-  - Resolver.js:285 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:285:5
-  
-  
-  - DescriptionFilePlugin.js:67 
-    [FirstSite]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
-  
-  - Resolver.js:285 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:285:5
-  
-  
-  - Resolver.js:285 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:285:5
-  
-  
-  - DescriptionFilePlugin.js:67 
-    [FirstSite]/[enhanced-resolve]/lib/DescriptionFilePlugin.js:67:43
-  
-  - Resolver.js:285 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:285:5
-  
-  
-  - Resolver.js:285 
-    [FirstSite]/[enhanced-resolve]/lib/Resolver.js:285:5
-  
-  
-  - DirectoryExistsPlugin.js:27 
-    [FirstSite]/[enhanced-resolve]/lib/DirectoryExistsPlugin.js:27:15
-  
-  - CachedInputFileSystem.js:85 
-    [FirstSite]/[enhanced-resolve]/lib/CachedInputFileSystem.js:85:15
-  
-  
-  - Error: Can't resolve '../blocks/color-block/color-block.pug' in '/Users/ruslan/Desktop/WebDev/Git Repositories/FirstSite/src/pug/pages'
-  
-  - compiler.js:79 
-    [FirstSite]/[html-webpack-plugin]/lib/compiler.js:79:16
-  
-  - Compiler.js:343 
-    [FirstSite]/[webpack]/lib/Compiler.js:343:11
-  
-  - Compiler.js:681 
-    [FirstSite]/[webpack]/lib/Compiler.js:681:15
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [FirstSite]/[tapable]/lib/Hook.js:154:20
-  
-  - Compiler.js:678 
-    [FirstSite]/[webpack]/lib/Compiler.js:678:31
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [FirstSite]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1423 
-    [FirstSite]/[webpack]/lib/Compilation.js:1423:35
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [FirstSite]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1414 
-    [FirstSite]/[webpack]/lib/Compilation.js:1414:32
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [FirstSite]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1409 
-    [FirstSite]/[webpack]/lib/Compilation.js:1409:36
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [FirstSite]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1405 
-    [FirstSite]/[webpack]/lib/Compilation.js:1405:32
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [FirstSite]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1342 Compilation.seal
-    [FirstSite]/[webpack]/lib/Compilation.js:1342:27
-  
-  - Compiler.js:675 
-    [FirstSite]/[webpack]/lib/Compiler.js:675:18
-  
-  - Compilation.js:1261 
-    [FirstSite]/[webpack]/lib/Compilation.js:1261:4
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [FirstSite]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1253 Compilation.finish
-    [FirstSite]/[webpack]/lib/Compilation.js:1253:28
-  
-  - Compiler.js:672 
-    [FirstSite]/[webpack]/lib/Compiler.js:672:17
-  
-  
-  - Compilation.js:1185 
-    [FirstSite]/[webpack]/lib/Compilation.js:1185:12
-  
-</pre><script type="text/javascript" src="/dist/vendors~main.js"></script><script type="text/javascript" src="/dist/main.js"></script>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Colors & Type</title>
+  </head>
+  <body>
+<svg>(width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg")
+  <path>(d="M24 48C10.7647 48 0 37.2353 0 24C0 10.7647 10.7647 0 24 0C37.2353 0 48 10.7647 48 24C48 37.2353 37.2353 48 24 48ZM24 2.82353C12.3176 2.82353 2.82353 12.3176 2.82353 24C2.82353 35.6824 12.3176 45.1765 24 45.1765C35.6824 45.1765 45.1765 35.6824 45.1765 24C45.1765 12.3176 35.6824 2.82353 24 2.82353Z" fill="#1F2041" fill-opacity="0.25")</path>
+</svg>
+    <div class="color-block-wrapper">
+          <div class="color-block">
+            <div class="color-block__color-rectangle color-block__color-rectangle_dark-shade-100"></div>
+            <div class="color-block__color-description">
+              <div class="color-block__color-name">Dark shade 100%</div>
+              <div class="color-block__color-code">#1F2041</div>
+            </div>
+          </div>
+          <div class="color-block">
+            <div class="color-block__color-rectangle color-block__color-rectangle_dark-shade-75"></div>
+            <div class="color-block__color-description">
+              <div class="color-block__color-name">Dark shade 75%</div>
+              <div class="color-block__color-code">#1F2041</div>
+            </div>
+          </div>
+          <div class="color-block">
+            <div class="color-block__color-rectangle color-block__color-rectangle_dark-shade-50"></div>
+            <div class="color-block__color-description">
+              <div class="color-block__color-name">Dark shade 50%</div>
+              <div class="color-block__color-code">#1F2041</div>
+            </div>
+          </div>
+          <div class="color-block">
+            <div class="color-block__color-rectangle color-block__color-rectangle_dark-shade-25"></div>
+            <div class="color-block__color-description">
+              <div class="color-block__color-name">Dark shade 25%</div>
+              <div class="color-block__color-code">#1F2041</div>
+            </div>
+          </div>
+          <div class="color-block">
+            <div class="color-block__color-rectangle color-block__color-rectangle_dark-shade-5"></div>
+            <div class="color-block__color-description">
+              <div class="color-block__color-name">Dark shade 5%</div>
+              <div class="color-block__color-code">#1F2041</div>
+            </div>
+          </div>
+          <div class="color-block">
+            <div class="color-block__color-rectangle color-block__color-rectangle_purple"></div>
+            <div class="color-block__color-description">
+              <div class="color-block__color-name">Purple</div>
+              <div class="color-block__color-code">#BC9CFF</div>
+            </div>
+          </div>
+          <div class="color-block">
+            <div class="color-block__color-rectangle color-block__color-rectangle_green"></div>
+            <div class="color-block__color-description">
+              <div class="color-block__color-name">Green</div>
+              <div class="color-block__color-code">6FCF97</div>
+            </div>
+          </div>
+    </div>
+  <script type="text/javascript" src="/dist/vendors~main.js"></script><script type="text/javascript" src="/dist/main.js"></script></body>
+</html>
