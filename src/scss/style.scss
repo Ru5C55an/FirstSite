@@ -1,10 +1,31 @@
+@import 'fonts.scss';
+@import 'colors.scss';
+@import '../blocks/title/title.scss';
+@import '../blocks/color-block/color-block.scss';
+@import '../blocks/title/title.scss';
+@import '../blocks/subtitle/subtitle.scss';
+@import '../blocks/label/label.scss';
+@import '../blocks/text/text.scss';
+@import '../blocks/text-block/text-block.scss';
+
+
 html, body {
     height: 100%;
 }
 
-body {
-    color: black;
+.content-wrapper {
+    display: flex;
 }
 
-@import '../blocks/color-block/color-block.scss';
-@import '../fonts/Quicksand/Quicksand.scss';
+.text-block-wrapper {
+    margin-top: 145px;
+    margin-bottom: 454px;
+    margin-right: 191px;
+    margin-left: 427px;
+}
+
+.color-block-wrapper {
+    margin-bottom: 145px;
+    margin-top: 145px;
+    margin-left: 149.74px;
+}

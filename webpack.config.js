@@ -40,7 +40,7 @@ const cssLoaders = extra => {				//данная фунция будет возв
 			}
 		},
 		
-		'css-loader',
+		'css-loader?url=false', //?url=false добавил чувак из телеги, не знаю зачем он нужен (та нет, ./ можно удалить. Отключает resolving относительных путей)
 		//'postcss-loader',
 	]
 	
@@ -255,7 +255,11 @@ module.exports = {
 			//Правило для случая, если webpack находит шрифты
 			{
 				test: /\.(ttf|woff|woff2|eot)$/,
-				use: ['file-loader']
+				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+					outputPath: 'fonts/'
+				}
 			},
 
 			//Правило для случая, если webpack находит .xml файлы

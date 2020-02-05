@@ -1,23 +1,40 @@
-html, body {
-  height: 100%; }
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Quicksand/quicksand-v19-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/Quicksand/quicksand-v19-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Quicksand/quicksand-v19-latin-regular.woff2") format("woff2"), url("../fonts/Quicksand/quicksand-v19-latin-regular.woff") format("woff"), url("../fonts/Quicksand/quicksand-v19-latin-regular.ttf") format("truetype"), url("../fonts/Quicksand/quicksand-v19-latin-regular.svg#Quicksand") format("svg");
+  /* Legacy iOS */ }
 
-body {
-  color: black; }
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/montserrat-v14-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/Montserrat/montserrat-v14-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat/montserrat-v14-latin-regular.woff2") format("woff2"), url("../fonts/Montserrat/montserrat-v14-latin-regular.woff") format("woff"), url("../fonts/Montserrat/montserrat-v14-latin-regular.ttf") format("truetype"), url("../fonts/Montserrat/montserrat-v14-latin-regular.svg#Montserrat") format("svg");
+  /* Legacy iOS */ }
+
+.title {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #1F2041; }
 
 .color-block {
   width: 269.26px;
   height: 70px;
   display: flex;
   margin: 20px; }
-  .color-block-wrapper {
-    margin-bottom: 145px;
-    margin-top: 145px;
-    margin-left: 149.74px; }
   .color-block__color-description {
     display: flex;
     flex-direction: column;
     margin-left: 40px;
-    justify-content: center; }
+    justify-content: center;
+    color: #1F2041; }
   .color-block__color-name {
     font-family: Quicksand;
     font-style: normal;
@@ -40,9 +57,105 @@ body {
     .color-block__color-rectangle_dark-shade-5 {
       background-color: rgba(31, 32, 65, 0.05); }
     .color-block__color-rectangle_purple {
-      background-color: purple; }
+      background-color: #BC9CFF; }
     .color-block__color-rectangle_green {
-      background-color: green; }
+      background-color: #6FCF97; }
+
+.title {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #1F2041; }
+
+.subtitle {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 24px;
+  /* Dark 100% */
+  color: #1F2041; }
+
+.label {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+  text-transform: uppercase;
+  color: #1F2041; }
+
+.text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  /* Dark 75% */
+  color: rgba(31, 32, 65, 0.75); }
+
+.text-block {
+  display: flex;
+  align-items: flex-start; }
+  .text-block__text-icon {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    width: 37px;
+    /* identical to box height */
+    text-align: right;
+    /* Dark 25% */
+    color: rgba(31, 32, 65, 0.05);
+    margin-right: 30px; }
+    .text-block__text-icon_size-large {
+      font-size: 24px;
+      line-height: 29px; }
+    .text-block__text-icon_size-medium {
+      font-size: 19px;
+      line-height: 23px; }
+    .text-block__text-icon_size-small {
+      font-size: 12px;
+      line-height: 15px; }
+    .text-block__text-icon_size-normal {
+      font-size: 14px;
+      line-height: 24px; }
+  .text-block__title {
+    width: 336px; }
+    .text-block__title_size-large {
+      font-size: 24px;
+      line-height: 30px; }
+    .text-block__title_size-medium {
+      font-size: 19px;
+      line-height: 24px; }
+    .text-block__title_size-small {
+      font-size: 12px;
+      line-height: 15px;
+      /* identical to box height */
+      text-transform: uppercase; }
+    .text-block__title_size-normal {
+      font-size: 14px;
+      line-height: 24px; }
+
+html, body {
+  height: 100%; }
+
+.content-wrapper {
+  display: flex; }
+
+.text-block-wrapper {
+  margin-top: 145px;
+  margin-bottom: 454px;
+  margin-right: 191px;
+  margin-left: 427px; }
+
+.color-block-wrapper {
+  margin-bottom: 145px;
+  margin-top: 145px;
+  margin-left: 149.74px; }
 
 
 /*# sourceMappingURL=main.css.map*/

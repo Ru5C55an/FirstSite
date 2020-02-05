@@ -1,24 +1,17 @@
-@import './src/scss/colors.scss';
-
 .color-block {
     width: 269.26px;
     height: 70px;
     display: flex;
     margin: 20px;
-    &-wrapper {
-        margin-bottom: 145px;
-        margin-top: 145px;
-        margin-left: 149.74px;
-    }
+    
     &__color-description {
         display: flex;
         flex-direction: column;
         margin-left: 40px;
         justify-content: center;
+        color: $dark-shade-100;
     }
-    &__color-code {
 
-    }
     &__color-name {
         font-family: Quicksand;
         font-style: normal;
@@ -63,5 +56,4 @@
           background-color: $green;
         }
       }
-      
     }
