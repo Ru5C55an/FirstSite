@@ -2,7 +2,6 @@
     width: 269.26px;
     height: 70px;
     display: flex;
-    margin: 20px;
     
     &__color-description {
         display: flex;
@@ -13,12 +12,19 @@
     }
 
     &__color-name {
-        font-family: Quicksand;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 19px;
-        line-height: 29px;
-        margin-bottom: 15px;
+      font-family: Quicksand;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 19px;
+      line-height: 29px;
+    }
+
+    &__color-code {
+      font-family: Quicksand;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 19px;
+      line-height: 29px;
     }
 
     &__color-rectangle {
