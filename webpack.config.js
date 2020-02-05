@@ -40,7 +40,7 @@ const cssLoaders = extra => {				//данная фунция будет возв
 			}
 		},
 		
-		'css-loader?url=false', //?url=false добавил чувак из телеги, не знаю зачем он нужен (та нет, ./ можно удалить. Отключает resolving относительных путей)
+		'css-loader', //?url=false добавил чувак из телеги, не знаю зачем он нужен (та нет, ./ можно удалить. Отключает resolving относительных путей)
 		//'postcss-loader',
 	]
 	
@@ -161,10 +161,10 @@ module.exports = {
 	
 	//Путь для собранных файлов
   	output: {
-    	path: path.resolve(__dirname, './dist'),
+    	path: path.resolve(__dirname, 'dist'),
 		filename: filename('js'),
 		//Обновление путей (например для путей картинок)
-		publicPath: '/dist'
+		//publicPath: '/dist'
 	},
 
 	//
@@ -241,6 +241,11 @@ module.exports = {
 			{
 				test: /\.(png|jpg|svg|gif)$/,
 				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+					outputPath: 'img/'
+				},
+				exclude: path.resolve(__dirname, 'src/fonts')
 			},
 
 			//Правило для случая, если webpack находит pug
@@ -254,12 +259,13 @@ module.exports = {
 
 			//Правило для случая, если webpack находит шрифты
 			{
-				test: /\.(ttf|woff|woff2|eot)$/,
+				test: /\.(ttf|woff|woff2|eot|svg)$/,
 				loader: 'file-loader',
 				options: {
 					name: '[name].[ext]',
-					outputPath: 'fonts/'
-				}
+					outputPath: 'fonts/',
+				},
+				exclude: path.resolve(__dirname, 'src/img')
 			},
 
 			//Правило для случая, если webpack находит .xml файлы
