@@ -3,3 +3,5 @@ dist/*
 .DS_Store
 src/.DS_Store
 src/fonts/.DS_Store
+package-lock.json
+.DS_Store
