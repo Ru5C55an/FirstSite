@@ -109,6 +109,14 @@ const plugins = () => {
 				}
 			]),
 
+			new webpack.ProvidePlugin({
+				$: 'jquery',
+				jQuery: 'jquery',
+				'window.jquery': 'jquery',
+				'window.jQuery': 'jquery', 
+				'window.$': 'jquery',
+			}),
+
 			// Automatic creation any html pages (Don't forget to RERUN dev server)
     // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
     // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
@@ -239,7 +247,7 @@ module.exports = {
 
 			//Правило для случая, если webpack находит изображения
 			{
-				test: /\.(png|jpg|svg|gif)$/,
+				test: /\.(png|jpg|gif|svg)$/,
 				loader: 'file-loader',
 				options: {
 					name: '[name].[ext]',
@@ -265,7 +273,7 @@ module.exports = {
 					name: '[name].[ext]',
 					outputPath: 'fonts/',
 				},
-				exclude: path.resolve(__dirname, 'src/img')
+				include: [/fonts/],
 			},
 
 			//Правило для случая, если webpack находит .xml файлы
