@@ -12,7 +12,7 @@
         text-align: right;
         
         /* Dark 25% */
-        color: $dark-shade-5;
+        color: $dark-shade-25;
         margin-right: 30px;
 
         &_size-large {
@@ -39,8 +39,6 @@
 
     &__title {
         width: 336px;
-
-        //font-weight: bold;
 
         &_size-large {
             font-size: 24px;
