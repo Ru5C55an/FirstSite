@@ -1,7 +1,8 @@
 //include ../../blocks/input/input.pug
 
-//ixin text-field(labelText, textPlaceholder)
-//    .field-text
-//        +input(= labelText, = textPlaceholder, 'text')
-//        .field-text__input
+mixin text-field(labelText, textPlaceholder, options, pattern)
+    .text-field
+        //+input(labelText, textPlaceholder, 'text').field-text__input
+        label(class="label text-field__label-input")= labelText
+            input(class="text-field__text-input" placeholder= textPlaceholder type="text" #{$options} pattern= pattern)
         
