@@ -1,1 +1,102 @@
-<!--include ../../blocks/input/input.pug--><!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Form Elements</title><link href="main.6067937b9573e2674989.css" rel="stylesheet"></head><body><img src="img/logo.svg" alt="логотип"><div class="text-field"><!--+input(labelText, textPlaceholder, 'text').field-text__input--> <label class="label text-field__label-input">text field <input class="text-field__text-input" placeholder="Email" type="text" #{$options}></label></div><div class="text-field"><!--+input(labelText, textPlaceholder, 'text').field-text__input--> <label class="label text-field__label-input">text field <input class="text-field__text-input" placeholder="This is pretty awesome" type="text" #{$options} pattern=""></label></div><div class="text-field"><!--+input(labelText, textPlaceholder, 'text').field-text__input--> <label class="label text-field__label-input">masked text field <input class="text-field__text-input" placeholder="ДД.ММ.ГГГГ" type="text" #{$options}></label></div><div class="iqdropdown"><p class="iqdropdown-selection"></p><div class="iqdropdown-menu"><div class="iqdropdown-menu-option" data-id="item1" data-defaultcount="0" data-mincount="0" data-maxcount="5"><div><p class="iqdropdown-item">Item 1</p><p class="iqdropdown-description">A short description</p></div></div><div class="iqdropdown-menu-option" data-id="item2" data-defaultcount="0" data-mincount="0" data-maxcount="5"><div><p class="iqdropdown-item">Item 2</p><p class="iqdropdown-description">A short description</p></div></div><div class="iqdropdown-menu-option" data-id="item3" data-defaultcount="0" data-mincount="0" data-maxcount="5"><div><p class="iqdropdown-item">Item 3</p><p class="iqdropdown-description">A short description</p></div></div></div></div><div class="checkboxes-wrapper"><div class="checkboxes-label-wrapper"><p class="label">checkbox buttons</p></div><div class="checkbox-wrapper"><div class="checkbox-button"><input class="checkbox-button__checkbox" type="checkbox" id="smoking" name="smoking"> <label class="checkbox-button__label-checkbox text" for="smoking">Можно курить</label></div></div><div class="checkbox-wrapper"><div class="checkbox-button"><input class="checkbox-button__checkbox" type="checkbox" id="pets" name="pets"> <label class="checkbox-button__label-checkbox text" for="pets">Можно с питомцами</label></div></div><div class="checkbox-wrapper"><div class="checkbox-button"><input class="checkbox-button__checkbox" type="checkbox" id="guests" name="guests"> <label class="checkbox-button__label-checkbox text" for="guests">Можно пригласить гостей (до 10 человек)</label></div></div></div><div class="radio-buttons-area-wrapper"><div class="radio-buttons-label-wrapper"><p class="label">radio buttons</p></div><div class="radio-buttons-wrapper"><div class="radio-button-wrapper"><div class="radio-button"><input class="radio-button__radio" type="radio" id="man" name="gender"> <label class="radio-button__label-radio text" for="man">Мужчина</label></div></div><div class="radio-button-wrapper"><div class="radio-button"><input class="radio-button__radio" type="radio" id="woman" name="gender"> <label class="radio-button__label-radio text" for="woman">Женщина</label></div></div></div></div><div class="toggle"><input class="toggle__input" type="checkbox" id="special-offer"> <label class="toggle__button" for="special-offer"></label><p class="toggle__label text">Получать спецпредложения</p></div><script type="text/javascript" src="vendors~main.6067937b9573e2674989.js"></script><script type="text/javascript" src="main.6067937b9573e2674989.js"></script></body></html>
+
+<!--include ../../blocks/input/input.pug--><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Elements</title>
+  <link href="main.css" rel="stylesheet"></head>
+  <body><img src="img/logo.svg" alt="логотип">
+    <div class="text-field">
+      <!--+input(labelText, textPlaceholder, 'text').field-text__input-->
+      <label class="label text-field__label-input">text field
+        <input class="text-field__text-input" placeholder="Email" type="text" #{$options}>
+      </label>
+    </div>
+    <div class="text-field">
+      <!--+input(labelText, textPlaceholder, 'text').field-text__input-->
+      <label class="label text-field__label-input">text field
+        <input class="text-field__text-input" placeholder="This is pretty awesome" type="text" #{$options} pattern="">
+      </label>
+    </div>
+    <div class="text-field">
+      <!--+input(labelText, textPlaceholder, 'text').field-text__input-->
+      <label class="label text-field__label-input">masked text field
+        <input class="text-field__text-input" placeholder="ДД.ММ.ГГГГ" type="text" #{$options}>
+      </label>
+    </div>
+    <div class="iqdropdown">
+      <p class="iqdropdown-selection"></p>
+      <div class="iqdropdown-menu">
+        <div class="iqdropdown-menu-option" data-id="item1" data-defaultcount="0" data-mincount="0" data-maxcount="5">
+          <div>
+            <p class="iqdropdown-item">Item 1</p>
+            <p class="iqdropdown-description">A short description</p>
+          </div>
+        </div>
+        <div class="iqdropdown-menu-option" data-id="item2" data-defaultcount="0" data-mincount="0" data-maxcount="5">
+          <div>
+            <p class="iqdropdown-item">Item 2</p>
+            <p class="iqdropdown-description">A short description</p>
+          </div>
+        </div>
+        <div class="iqdropdown-menu-option" data-id="item3" data-defaultcount="0" data-mincount="0" data-maxcount="5">
+          <div>
+            <p class="iqdropdown-item">Item 3</p>
+            <p class="iqdropdown-description">A short description</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="checkboxes-wrapper">
+      <div class="checkboxes-label-wrapper">
+        <p class="label">checkbox buttons</p>
+      </div>
+      <div class="checkbox-wrapper">
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="smoking" name="smoking">
+          <label class="checkbox-button__label-checkbox text" for="smoking">Можно курить</label>
+        </div>
+      </div>
+      <div class="checkbox-wrapper">
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="pets" name="pets">
+          <label class="checkbox-button__label-checkbox text" for="pets">Можно с питомцами</label>
+        </div>
+      </div>
+      <div class="checkbox-wrapper">
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="guests" name="guests">
+          <label class="checkbox-button__label-checkbox text" for="guests">Можно пригласить гостей (до 10 человек)</label>
+        </div>
+      </div>
+    </div>
+    <div class="radio-buttons-area-wrapper">
+      <div class="radio-buttons-label-wrapper">
+        <p class="label">radio buttons</p>
+      </div>
+      <div class="radio-buttons-wrapper">
+        <div class="radio-button-wrapper">
+          <div class="radio-button">
+            <input class="radio-button__radio" type="radio" id="man" name="gender">
+            <label class="radio-button__label-radio text" for="man">Мужчина</label>
+          </div>
+        </div>
+        <div class="radio-button-wrapper">
+          <div class="radio-button">
+            <input class="radio-button__radio" type="radio" id="woman" name="gender">
+            <label class="radio-button__label-radio text" for="woman">Женщина</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toggle">
+      <div class="div">
+        <input class="toggle__input" type="checkbox" id="special-offer">
+        <label class="toggle__button" for="special-offer"> </label>
+      </div>
+      <div class="toggle__label text">Получать спецпредложения</div>
+    </div>
+  <script type="text/javascript" src="vendors~main.js"></script><script type="text/javascript" src="main.js"></script></body>
+</html>
