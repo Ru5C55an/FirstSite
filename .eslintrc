@@ -1,13 +1,18 @@
 {
-    "parser": "babel-eslint", //говорим что у нас еще есть babel ( ну или что-то типо того)
-    "rules": {
-        "no-unused-vars": "warn", //Для неиспользуемых переменных предупреждай
-    },
-    "env": { //Указываем где мы работаем с eslint
-        "es6": true,
-        "browser": true
-    },
-    "extends": [
-        "eslint:recommended"
-    ]
+  "parser": "babel-eslint", //говорим что у нас еще есть babel ( ну или что-то типо того)
+  "rules": {
+    //Сюда мы пишем настройки правил
+    "no-unused-vars": "warn", //Для неиспользуемых переменных предупреждай
+    "prefer-destructuring": "off"
+  },
+  "env": {
+    //Указываем где мы работаем с eslint
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    //    "eslint:recommended",
+    "airbnb/base"
+  ]
 }
