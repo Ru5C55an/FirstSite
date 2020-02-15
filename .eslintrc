@@ -3,7 +3,8 @@
   "rules": {
     //Сюда мы пишем настройки правил
     "no-unused-vars": "warn", //Для неиспользуемых переменных предупреждай
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }] //Для того чтобы не ругался на пакеты, установленные в DevDependencies
   },
   "env": {
     //Указываем где мы работаем с eslint
