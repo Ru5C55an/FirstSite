@@ -53,11 +53,6 @@
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
-/******/ 	// object to store loaded CSS chunks
-/******/ 	var installedCssChunks = {
-/******/ 		"main": 0
-/******/ 	}
-/******/
 /******/ 	// object to store loaded and loading chunks
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
@@ -66,11 +61,6 @@
 /******/ 	};
 /******/
 /******/ 	var deferredModules = [];
-/******/
-/******/ 	// script path function
-/******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js"
-/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -96,108 +86,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		var promises = [];
-/******/
-/******/
-/******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"0":1};
-/******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
-/******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
-/******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({}[chunkId]||chunkId) + ".css";
-/******/ 				var fullhref = __webpack_require__.p + href;
-/******/ 				var existingLinkTags = document.getElementsByTagName("link");
-/******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
-/******/ 					var tag = existingLinkTags[i];
-/******/ 					var dataHref = tag.getAttribute("data-href") || tag.getAttribute("href");
-/******/ 					if(tag.rel === "stylesheet" && (dataHref === href || dataHref === fullhref)) return resolve();
-/******/ 				}
-/******/ 				var existingStyleTags = document.getElementsByTagName("style");
-/******/ 				for(var i = 0; i < existingStyleTags.length; i++) {
-/******/ 					var tag = existingStyleTags[i];
-/******/ 					var dataHref = tag.getAttribute("data-href");
-/******/ 					if(dataHref === href || dataHref === fullhref) return resolve();
-/******/ 				}
-/******/ 				var linkTag = document.createElement("link");
-/******/ 				linkTag.rel = "stylesheet";
-/******/ 				linkTag.type = "text/css";
-/******/ 				linkTag.onload = resolve;
-/******/ 				linkTag.onerror = function(event) {
-/******/ 					var request = event && event.target && event.target.src || fullhref;
-/******/ 					var err = new Error("Loading CSS chunk " + chunkId + " failed.\n(" + request + ")");
-/******/ 					err.code = "CSS_CHUNK_LOAD_FAILED";
-/******/ 					err.request = request;
-/******/ 					delete installedCssChunks[chunkId]
-/******/ 					linkTag.parentNode.removeChild(linkTag)
-/******/ 					reject(err);
-/******/ 				};
-/******/ 				linkTag.href = fullhref;
-/******/
-/******/ 				var head = document.getElementsByTagName("head")[0];
-/******/ 				head.appendChild(linkTag);
-/******/ 			}).then(function() {
-/******/ 				installedCssChunks[chunkId] = 0;
-/******/ 			}));
-/******/ 		}
-/******/
-/******/ 		// JSONP chunk loading for javascript
-/******/
-/******/ 		var installedChunkData = installedChunks[chunkId];
-/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
-/******/
-/******/ 			// a Promise means "currently loading".
-/******/ 			if(installedChunkData) {
-/******/ 				promises.push(installedChunkData[2]);
-/******/ 			} else {
-/******/ 				// setup Promise in chunk cache
-/******/ 				var promise = new Promise(function(resolve, reject) {
-/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
-/******/ 				});
-/******/ 				promises.push(installedChunkData[2] = promise);
-/******/
-/******/ 				// start chunk loading
-/******/ 				var script = document.createElement('script');
-/******/ 				var onScriptComplete;
-/******/
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 				script.src = jsonpScriptSrc(chunkId);
-/******/
-/******/ 				// create error before stack unwound to get useful stacktrace later
-/******/ 				var error = new Error();
-/******/ 				onScriptComplete = function (event) {
-/******/ 					// avoid mem leaks in IE.
-/******/ 					script.onerror = script.onload = null;
-/******/ 					clearTimeout(timeout);
-/******/ 					var chunk = installedChunks[chunkId];
-/******/ 					if(chunk !== 0) {
-/******/ 						if(chunk) {
-/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 							var realSrc = event && event.target && event.target.src;
-/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 							error.name = 'ChunkLoadError';
-/******/ 							error.type = errorType;
-/******/ 							error.request = realSrc;
-/******/ 							chunk[1](error);
-/******/ 						}
-/******/ 						installedChunks[chunkId] = undefined;
-/******/ 					}
-/******/ 				};
-/******/ 				var timeout = setTimeout(function(){
-/******/ 					onScriptComplete({ type: 'timeout', target: script });
-/******/ 				}, 120000);
-/******/ 				script.onerror = script.onload = onScriptComplete;
-/******/ 				document.head.appendChild(script);
-/******/ 			}
-/******/ 		}
-/******/ 		return Promise.all(promises);
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -251,9 +139,6 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
 /******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
@@ -281,8 +166,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-__webpack_require__.e(/*! import() */ 1).then(__webpack_require__.t.bind(null, /*! item-quantity-dropdown/lib/item-quantity-dropdown.min.js */ "../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.js", 7));
-__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! item-quantity-dropdown/lib/item-quantity-dropdown.min.css */ "../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.css", 7));
+/* harmony import */ var item_quantity_dropdown_lib_item_quantity_dropdown_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! item-quantity-dropdown/lib/item-quantity-dropdown.min */ "../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.js");
+/* harmony import */ var item_quantity_dropdown_lib_item_quantity_dropdown_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(item_quantity_dropdown_lib_item_quantity_dropdown_min__WEBPACK_IMPORTED_MODULE_1__);
+
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.iqdropdown').iqDropdown({
@@ -291,9 +177,11 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     // min total items
     minItems: 0,
     // text to show on the dropdown
-    selectionText: 'item',
+    selectionText: 'Количество комнат',
     // text to show for multiple items
-    textPlural: 'items',
+    textPlural: ['спальня'],
+    textPluralDeclination: ['спальня', 'спальни'],
+    items: {},
     // buttons to increment/decrement
     controls: {
       position: 'right',
@@ -302,16 +190,54 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       counterCls: 'counter'
     },
     // fires when an item quantity changes
-    onChange: function onChange(id, count, totalItems) {},
+    onChange: function onChange(id, count, totalItems) {
+      return true;
+    },
     // return false to prevent an item decrement
-    beforeDecrement: function beforeDecrement(id, itemCount) {},
+    beforeDecrement: function beforeDecrement(id, itemCount) {
+      return true;
+    },
     // return false to prevent an item increment
-    beforeIncrement: function beforeIncrement(id, itemCount) {}
-  });
+    beforeIncrement: function beforeIncrement(id, itemCount) {
+      return true;
+    }
+  }); // eslint-disable-next-line no-restricted-syntax
+
+  var decrementButtons = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option > .iqdropdown-item-controls > .button-decrement');
+  var incrementButtons = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option > .iqdropdown-item-controls > .button-increment');
+  var counterValues = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option > .iqdropdown-item-controls > span'); // eslint-disable-next-line no-plusplus
+
+  var _loop = function _loop(i) {
+    decrementButtons[i].classList.add('unactive-button'); // eslint-disable-next-line prefer-arrow-callback
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.iqdropdown-item-controls .counter').bind('DOMSubtreeModified', function gab() {
+      // отслеживаем изменение содержимого блока 2
+      if (counterValues[i].textContent === '0') {
+        decrementButtons[i].classList.add('unactive-button');
+      } else if (counterValues[i].textContent === '5') {
+        incrementButtons[i].classList.add('unactive-button');
+      } else {
+        incrementButtons[i].classList.remove('unactive-button');
+        decrementButtons[i].classList.remove('unactive-button');
+      }
+    });
+  };
+
+  for (var i = 0; i < decrementButtons.length; i++) {
+    _loop(i);
+  }
 });
 /*
+decrementButtons[i].onclick = function () {
+      if (counterValues[i].textContent === '0') {
+        decrementButtons[i].classList.add('unactive-decrement');
+      } else decrementButtons[i].classList.remove('unactive-decrement');
+    };
+*/
+
+/*
 $(document).ready(() => {
-    $('.iqdropdown').iqDropdown({ 
+    $('.iqdropdown').iqDropdown({
     // min total items
     minItems: 0,
     // max total items
@@ -351,7 +277,7 @@ $(document).ready(() => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _blocks_dropdown_dropdown_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blocks/dropdown/dropdown.js */ "./blocks/dropdown/dropdown.js");
+/* harmony import */ var _blocks_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blocks/dropdown/dropdown */ "./blocks/dropdown/dropdown.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 

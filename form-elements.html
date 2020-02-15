@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form Elements</title>
-  <link href="main.css" rel="stylesheet"></head>
+  <link href="vendors~main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"></head>
   <body><img src="img/logo.svg" alt="логотип">
     <div class="text-field">
       <!--+input(labelText, textPlaceholder, 'text').field-text__input-->
@@ -26,27 +26,28 @@
         <input class="text-field__text-input" placeholder="ДД.ММ.ГГГГ" type="text" #{$options}>
       </label>
     </div>
-    <div class="iqdropdown">
-      <p class="iqdropdown-selection"></p>
-      <div class="iqdropdown-menu">
-        <div class="iqdropdown-menu-option" data-id="item1" data-defaultcount="0" data-mincount="0" data-maxcount="5">
-          <div>
-            <p class="iqdropdown-item">Item 1</p>
-            <p class="iqdropdown-description">A short description</p>
+    <div class="dropdown-wrapper">
+      <div class="iqdropdown">
+        <p class="iqdropdown-selection"></p>
+        <div class="iqdropdown-menu">
+          <div class="iqdropdown-menu-option" data-id="bedrooms" data-defaultcount="0" data-mincount="0" data-maxcount="5">
+            <div>
+              <p class="iqdropdown-item">спальни</p>
+            </div>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="beds" data-defaultcount="0" data-mincount="0" data-maxcount="5">
+            <div>
+              <p class="iqdropdown-item">кровати</p>
+            </div>
+          </div>
+          <div class="iqdropdown-menu-option" data-id="bathrooms" data-defaultcount="0" data-mincount="0" data-maxcount="5">
+            <div>
+              <p class="iqdropdown-item">ванные комнаты</p>
+            </div>
           </div>
         </div>
-        <div class="iqdropdown-menu-option" data-id="item2" data-defaultcount="0" data-mincount="0" data-maxcount="5">
-          <div>
-            <p class="iqdropdown-item">Item 2</p>
-            <p class="iqdropdown-description">A short description</p>
-          </div>
-        </div>
-        <div class="iqdropdown-menu-option" data-id="item3" data-defaultcount="0" data-mincount="0" data-maxcount="5">
-          <div>
-            <p class="iqdropdown-item">Item 3</p>
-            <p class="iqdropdown-description">A short description</p>
-          </div>
-        </div>
+        <button class="button button_theme_simple">Очистить</button>
+        <button class="button button_theme_simple">Применить</button>
       </div>
     </div>
     <div class="checkboxes-wrapper">
@@ -97,6 +98,81 @@
         <label class="toggle__button" for="special-offer"> </label>
       </div>
       <div class="toggle__label text">Получать спецпредложения</div>
+    </div>
+    <div class="button-area-wrapper">
+      <p class="label">buttons</p>
+      <div class="button-wrapper">
+        <button class="button button_theme_simple">click</button>
+      </div>
+      <div class="button-wrapper">
+        <button class="button button_theme_simple-colorized">click</button>
+      </div>
+      <div class="button-wrapper">
+        <button class="button button_theme_border">click</button>
+      </div>
+      <div class="button-wrapper">
+        <button class="button button_theme_border-background">click</button>
+      </div>
+      <div class="button-wrapper">
+        <button class="button button_theme_long">click</button>
+      </div>
+    </div>
+    <div class="bullet-list-area-wrapper">
+      <p class="label">bullet list</p>
+      <div class="bullet-list"> 
+        <ul class="bullet-list_marker-list" id="rules">
+          <li class="bullet-list_marker-element">Нельзя с питомцами</li>
+          <li class="bullet-list_marker-element">Без вечеринок и мероприятий</li>
+          <li class="bullet-list_marker-element">Время прибытия — после 13:00, а выезд до 12:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="expandable-checkbox-list"> 
+      <div class="expandable-checkbox-list_title">Завтрак</div>
+      <select class="expandable-checkbox-list_select" id="facilities" multiple="multiple">
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
+          <label class="checkbox-button__label-checkbox text" for="facilities">Письменный стол</label>
+        </div>
+        <!--option.expandable-checkbox-list_option
+        -->
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
+          <label class="checkbox-button__label-checkbox text" for="facilities">Стул для кормления</label>
+        </div>
+        <!--option.expandable-checkbox-list_option
+        -->
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
+          <label class="checkbox-button__label-checkbox text" for="facilities">Кроватка</label>
+        </div>
+        <!--option.expandable-checkbox-list_option
+        -->
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
+          <label class="checkbox-button__label-checkbox text" for="facilities">Телевизор</label>
+        </div>
+        <!--option.expandable-checkbox-list_option
+        -->
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
+          <label class="checkbox-button__label-checkbox text" for="facilities">Шампунь</label>
+        </div>
+        <!--option.expandable-checkbox-list_option
+        -->
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
+          <label class="checkbox-button__label-checkbox text" for="facilities">Телевизор</label>
+        </div>
+        <!--option.expandable-checkbox-list_option
+        -->
+        <div class="checkbox-button">
+          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
+          <label class="checkbox-button__label-checkbox text" for="facilities">Шампунь</label>
+        </div>
+        <!--option.expandable-checkbox-list_option
+        -->
+      </select>
     </div>
   <script type="text/javascript" src="vendors~main.js"></script><script type="text/javascript" src="main.js"></script></body>
 </html>
