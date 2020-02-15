@@ -273,7 +273,8 @@ module.exports = {
 					name: '[name].[ext]',
 					outputPath: 'fonts/',
 				},
-				include: [/fonts/],
+				include: [/fonts/, /node_modules/],
+				
 			},
 
 			//Правило для случая, если webpack находит .xml файлы
