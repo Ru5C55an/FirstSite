@@ -1,4 +1,6 @@
-mixin checkbox-button(labelText, nameInput, idInput)
-    .checkbox-button
-        input(class="checkbox-button__checkbox" type="checkbox" id= idInput  name= nameInput)
-        label(class="checkbox-button__label-checkbox text" for= idInput)= labelText
+mixin checkbox-button(items = [])
+    each item in items
+        .checkbox-button
+            - const {label, id, name} = item
+            input(class="checkbox-button__checkbox" type="checkbox" id= id  name= name)
+            label(class="checkbox-button__label-checkbox text" for= id)= label

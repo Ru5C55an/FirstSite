@@ -32,49 +32,54 @@
 
     /* Dark 50% */
     color: $dark-shade-50;
+
+    &:after {
+      position: absolute;
+      left: -15px;
+      top: 4px;
+      content: "";
+      display: inline-block;
+
+      height: 8px;
+      width: 6px;
+
+      /* Primary Gradient */
+      -webkit-clip-path: polygon(
+        0% 100%,
+        0% 75%,
+        65% 75%,
+        65% 0%,
+        100% 0%,
+        100% 100%
+      );
+      clip-path: polygon(0% 100%, 0% 75%, 65% 75%, 65% 0%, 100% 0%, 100% 100%);
+      background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+
+    &:before {
+      position: absolute;
+      left: -22px;
+      top: -1px;
+      content: "";
+      display: inline-block;
+
+      height: 20px;
+      width: 20px;
+
+      background: $white;
+      /* Dark 25% */
+
+      border: 1px solid $dark-shade-25;
+      box-sizing: border-box;
+      border-radius: 4px;
+
+      cursor: pointer;
+    }
   }
+}
 
-  &__label-checkbox:before {
-    position: absolute;
-    left: -22px;
-    top: -1px;
-    content: "";
-    display: inline-block;
-
-    height: 20px;
-    width: 20px;
-
-    background: $white;
-    /* Dark 25% */
-
-    border: 1px solid $dark-shade-25;
-    box-sizing: border-box;
-    border-radius: 4px;
-
-    cursor: pointer;
-  }
-
-  &__label-checkbox:after {
-    position: absolute;
-    left: -15px;
-    top: 4px;
-    content: "";
-    display: inline-block;
-
-    height: 8px;
-    width: 6px;
-
-    /* Primary Gradient */
-    -webkit-clip-path: polygon(
-      0% 100%,
-      0% 75%,
-      65% 75%,
-      65% 0%,
-      100% 0%,
-      100% 100%
-    );
-    clip-path: polygon(0% 100%, 0% 75%, 65% 75%, 65% 0%, 100% 0%, 100% 100%);
-    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-    transform: rotate(45deg);
-  }
+.checkbox-button:not(:last-child) {
+  margin-bottom: 10px;
 }
