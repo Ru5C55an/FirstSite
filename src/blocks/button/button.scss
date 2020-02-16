@@ -1,0 +1,108 @@
+.button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+
+  &_theme_simple {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    color: $dark-shade-50;
+  }
+
+  &_theme_simple-colorized {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    /* Primary Color */
+
+    color: $purple;
+  }
+
+  &_theme_border {
+    width: 99px;
+    height: 44px;
+    border-radius: 22px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    /* Primary Color */
+
+    color: $purple;
+
+    border: 1px solid;
+    border-color: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &_theme_border-background {
+    width: 99px;
+    height: 44px;
+    /* Primary Gradient */
+
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    border-radius: 22px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    color: $white;
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &_theme_long {
+    width: 320px;
+    height: 44px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: $white;
+
+    /* Primary Gradient */
+
+    background: linear-gradient(180deg, $purple 0%, #8ba4f9 100%);
+    border-radius: 22px;
+  }
+}
