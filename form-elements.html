@@ -45,9 +45,9 @@
               <p class="iqdropdown-item">ванные комнаты</p>
             </div>
           </div>
+          <button class="button button_theme_simple" type="reset">Очистить</button>
+          <button class="button button_theme_simple-colorized" type="submit">Применить</button>
         </div>
-        <button class="button button_theme_simple">Очистить</button>
-        <button class="button button_theme_simple">Применить</button>
       </div>
     </div>
     <div class="checkboxes-wrapper">
@@ -59,14 +59,10 @@
           <input class="checkbox-button__checkbox" type="checkbox" id="smoking" name="smoking">
           <label class="checkbox-button__label-checkbox text" for="smoking">Можно курить</label>
         </div>
-      </div>
-      <div class="checkbox-wrapper">
         <div class="checkbox-button">
           <input class="checkbox-button__checkbox" type="checkbox" id="pets" name="pets">
           <label class="checkbox-button__label-checkbox text" for="pets">Можно с питомцами</label>
         </div>
-      </div>
-      <div class="checkbox-wrapper">
         <div class="checkbox-button">
           <input class="checkbox-button__checkbox" type="checkbox" id="guests" name="guests">
           <label class="checkbox-button__label-checkbox text" for="guests">Можно пригласить гостей (до 10 человек)</label>
@@ -102,19 +98,19 @@
     <div class="button-area-wrapper">
       <p class="label">buttons</p>
       <div class="button-wrapper">
-        <button class="button button_theme_simple">click</button>
+        <button class="button button_theme_simple" type="submit">click</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_simple-colorized">click</button>
+        <button class="button button_theme_simple-colorized" type="submit">click</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_border">click</button>
+        <button class="button button_theme_border" type="submit">click</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_border-background">click</button>
+        <button class="button button_theme_border-background" type="submit">click</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_long">click</button>
+        <button class="button button_theme_long" type="submit">click</button>
       </div>
     </div>
     <div class="bullet-list-area-wrapper">
@@ -127,52 +123,57 @@
         </ul>
       </div>
     </div>
-    <div class="expandable-checkbox-list"> 
-      <div class="expandable-checkbox-list_title">Завтрак</div>
-      <select class="expandable-checkbox-list_select" id="facilities" multiple="multiple">
-        <div class="checkbox-button">
-          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
-          <label class="checkbox-button__label-checkbox text" for="facilities">Письменный стол</label>
+    <div class="rich-checkbox-button">
+      <input class="rich-checkbox-button__checkbox" type="checkbox" id="wide-corridor" name="wide-corridor">
+      <label class="rich-checkbox-button__label" for="wide-corridor">Широкий коридор</label>
+      <div class="rich-checkbox-button__description">Ширина коридоров в номере не менее 91 см.</div>
+    </div>
+    <div class="rich-checkbox-button">
+      <input class="rich-checkbox-button__checkbox" type="checkbox" id="invalid-assistant" name="invalid-assistant">
+      <label class="rich-checkbox-button__label" for="invalid-assistant">Помощьник для инвалидов</label>
+      <div class="rich-checkbox-button__description">На 1 этаже вас встретит специалист и проводит до номера.</div>
+    </div>
+    <div class="range-slider">
+      <input class="js-range-slider" type="text" name="my_range" value="">
+    </div>
+    <div class="expandable-checkbox-list-wrapper">
+      <div class="expandable-checkbox-list" onclick="showCheckboxes()"> 
+        <div class="expandable-checkbox-list__title">expanded checkbox list</div>
+        <div class="expandable-checkbox-list__menu">
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="1" name="1">
+            <label class="checkbox-button__label-checkbox text" for="1">Завтрак</label>
+          </div>
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="2" name="2">
+            <label class="checkbox-button__label-checkbox text" for="2">Письменный стол</label>
+          </div>
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="3" name="3">
+            <label class="checkbox-button__label-checkbox text" for="3">Стул для кормления</label>
+          </div>
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="4" name="4">
+            <label class="checkbox-button__label-checkbox text" for="4">Кроватка</label>
+          </div>
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="5" name="5">
+            <label class="checkbox-button__label-checkbox text" for="5">Телевизор</label>
+          </div>
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="6" name="6">
+            <label class="checkbox-button__label-checkbox text" for="6">Шампунь</label>
+          </div>
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="7" name="7">
+            <label class="checkbox-button__label-checkbox text" for="7">Телевизор</label>
+          </div>
+          <div class="checkbox-button">
+            <input class="checkbox-button__checkbox" type="checkbox" id="8" name="8">
+            <label class="checkbox-button__label-checkbox text" for="8">Шампунь</label>
+          </div>
         </div>
-        <!--option.expandable-checkbox-list_option
-        -->
-        <div class="checkbox-button">
-          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
-          <label class="checkbox-button__label-checkbox text" for="facilities">Стул для кормления</label>
-        </div>
-        <!--option.expandable-checkbox-list_option
-        -->
-        <div class="checkbox-button">
-          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
-          <label class="checkbox-button__label-checkbox text" for="facilities">Кроватка</label>
-        </div>
-        <!--option.expandable-checkbox-list_option
-        -->
-        <div class="checkbox-button">
-          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
-          <label class="checkbox-button__label-checkbox text" for="facilities">Телевизор</label>
-        </div>
-        <!--option.expandable-checkbox-list_option
-        -->
-        <div class="checkbox-button">
-          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
-          <label class="checkbox-button__label-checkbox text" for="facilities">Шампунь</label>
-        </div>
-        <!--option.expandable-checkbox-list_option
-        -->
-        <div class="checkbox-button">
-          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
-          <label class="checkbox-button__label-checkbox text" for="facilities">Телевизор</label>
-        </div>
-        <!--option.expandable-checkbox-list_option
-        -->
-        <div class="checkbox-button">
-          <input class="checkbox-button__checkbox" type="checkbox" id="facilities" name="facilities">
-          <label class="checkbox-button__label-checkbox text" for="facilities">Шампунь</label>
-        </div>
-        <!--option.expandable-checkbox-list_option
-        -->
-      </select>
+      </div>
     </div>
   <script type="text/javascript" src="vendors~main.js"></script><script type="text/javascript" src="main.js"></script></body>
 </html>

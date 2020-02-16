@@ -268,6 +268,51 @@ $(document).ready(() => {
 
 /***/ }),
 
+/***/ "./blocks/expandable-checkbox-list/expandable-checkbox-list.js":
+/*!*********************************************************************!*\
+  !*** ./blocks/expandable-checkbox-list/expandable-checkbox-list.js ***!
+  \*********************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  var expanded = false;
+
+  function showCheckboxes() {
+    var checkboxes = document.querySelector('.expandable-checkbox-list__menu');
+
+    if (!expanded) {
+      checkboxes.style.display = 'block';
+      expanded = true;
+    } else {
+      checkboxes.style.display = 'none';
+      expanded = false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./blocks/range-slider/range-slider.js":
+/*!*********************************************!*\
+  !*** ./blocks/range-slider/range-slider.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/***/ }),
+
 /***/ "./js/index.js":
 /*!*********************!*\
   !*** ./js/index.js ***!
@@ -278,8 +323,12 @@ $(document).ready(() => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blocks/dropdown/dropdown */ "./blocks/dropdown/dropdown.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _blocks_expandable_checkbox_list_expandable_checkbox_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../blocks/expandable-checkbox-list/expandable-checkbox-list */ "./blocks/expandable-checkbox-list/expandable-checkbox-list.js");
+/* harmony import */ var _blocks_range_slider_range_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../blocks/range-slider/range-slider */ "./blocks/range-slider/range-slider.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 
 
