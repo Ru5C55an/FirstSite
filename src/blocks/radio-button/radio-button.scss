@@ -3,42 +3,45 @@
     opacity: 0;
   }
 
-  &__radio + &__label-radio:after {
+  &__radio + &__label:after {
     content: none;
   }
 
-  &__radio:checked + &__label-radio:after {
+  &__radio:checked + &__label:after {
     content: "";
   }
 
-  &__radio:focus + &__label-radio:before {
+  &__radio:focus + &__label:before {
     border: 1px solid $purple;
   }
 
-  &__radio:checked + &__label-radio:before {
+  &__radio:checked + &__label:before {
     border: 1px solid $purple;
     cursor: default;
   }
 
-  &__label-radio {
+  &__label {
     position: relative;
     display: inline-block;
-
     width: 96px;
 
     padding-left: 8px;
 
-    /* identical to box height, or 129% */
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
 
-    /* Dark 50% */
-    color: $dark-shade-50;
-  }
-
-  &__radio:checked + &__label-radio {
     color: $dark-shade-75;
   }
 
-  &__label-radio:before {
+  &__radio:checked + &__label {
+    color: $dark-shade-75;
+  }
+
+  &__label:before {
     position: absolute;
     left: -22px;
     top: 3px;
@@ -57,7 +60,7 @@
     cursor: pointer;
   }
 
-  &__label-radio:after {
+  &__label:after {
     position: absolute;
     left: -18px;
     top: 7px;
