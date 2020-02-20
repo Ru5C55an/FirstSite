@@ -171,6 +171,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  var Words;
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.iqdropdown').iqDropdown({
     // max total items
     maxItems: Infinity,
@@ -179,8 +180,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     // text to show on the dropdown
     selectionText: 'Количество комнат',
     // text to show for multiple items
-    textPlural: ['спальня'],
-    textPluralDeclination: ['спальня', 'спальни'],
+    textPlural: ['Количество комнат'],
+    textPluralDeclination: Words,
     items: {},
     // buttons to increment/decrement
     controls: {
@@ -193,6 +194,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     onChange: function onChange(id, count, totalItems) {
       return true;
     },
+    // eslint-disable-next-line max-len
+    // if(itemCount > 0) {Words += itemCount + ((bedroom<2)?' спальня, ':(bedroom<5)?' спальни, ': ' спален, ')};,
     // return false to prevent an item decrement
     beforeDecrement: function beforeDecrement(id, itemCount) {
       return true;
@@ -205,16 +208,20 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   var decrementButtons = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option > .iqdropdown-item-controls > .button-decrement');
   var incrementButtons = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option > .iqdropdown-item-controls > .button-increment');
-  var counterValues = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option > .iqdropdown-item-controls > span'); // eslint-disable-next-line no-plusplus
+  var counterValues = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option > .iqdropdown-item-controls > span');
+  var menuOptions = document.querySelectorAll('.iqdropdown-menu > .iqdropdown-menu-option'); // eslint-disable-next-line no-plusplus
 
   var _loop = function _loop(i) {
+    var menuOption = menuOptions[i];
+    var maxCount = menuOption.dataset.maxcount;
+    var minCount = menuOption.dataset.mincount;
     decrementButtons[i].classList.add('unactive-button'); // eslint-disable-next-line prefer-arrow-callback
 
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.iqdropdown-item-controls .counter').bind('DOMSubtreeModified', function gab() {
       // отслеживаем изменение содержимого блока 2
-      if (counterValues[i].textContent === '0') {
+      if (counterValues[i].textContent === minCount) {
         decrementButtons[i].classList.add('unactive-button');
-      } else if (counterValues[i].textContent === '5') {
+      } else if (counterValues[i].textContent === maxCount) {
         incrementButtons[i].classList.add('unactive-button');
       } else {
         incrementButtons[i].classList.remove('unactive-button');
@@ -227,44 +234,6 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     _loop(i);
   }
 });
-/*
-decrementButtons[i].onclick = function () {
-      if (counterValues[i].textContent === '0') {
-        decrementButtons[i].classList.add('unactive-decrement');
-      } else decrementButtons[i].classList.remove('unactive-decrement');
-    };
-*/
-
-/*
-$(document).ready(() => {
-    $('.iqdropdown').iqDropdown({
-    // min total items
-    minItems: 0,
-    // max total items
-    maxItems: 20,
-    // text to show on the dropdown
-    selectionText: 'Сколько гостей',
-    textPlural: 'гость',
-    textPluralDeclination:['гость','гостя','гостей'],
-    items: {},
-    controls: {
-      position: 'right',
-      displayCls: 'iqdropdown-item-display',
-      controlsCls: 'iqdropdown-item-controls',
-      counterCls: 'counter'
-    },
-    // buttons to increment/decrement
-    // fires when an item quantity changes
-    onChange: function(id, count, totalItems) {
-      //console.log(id, count, totalItems);
-    },
-    // return false to prevent an item decrement
-    beforeDecrement: (id, itemCount) => true,
-    // return false to prevent an item increment
-    beforeIncrement: (id, itemCount) => {return true;}
-    });
-  });
-  */
 
 /***/ }),
 
@@ -298,6 +267,28 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
 /***/ }),
 
+/***/ "./blocks/like-button/like-button.js":
+/*!*******************************************!*\
+  !*** ./blocks/like-button/like-button.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+var clicks = 0;
+document.querySelector('.like-button__counter').innerHTML = clicks;
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.like-button').click(function () {
+  clicks += 1;
+  document.querySelector('.like-button__counter').innerHTML = clicks;
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.like-button').addClass('like-button_theme_liked');
+});
+
+/***/ }),
+
 /***/ "./blocks/range-slider/range-slider.js":
 /*!*********************************************!*\
   !*** ./blocks/range-slider/range-slider.js ***!
@@ -325,8 +316,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blocks/dropdown/dropdown */ "./blocks/dropdown/dropdown.js");
 /* harmony import */ var _blocks_expandable_checkbox_list_expandable_checkbox_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../blocks/expandable-checkbox-list/expandable-checkbox-list */ "./blocks/expandable-checkbox-list/expandable-checkbox-list.js");
 /* harmony import */ var _blocks_range_slider_range_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../blocks/range-slider/range-slider */ "./blocks/range-slider/range-slider.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _blocks_like_button_like_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../blocks/like-button/like-button */ "./blocks/like-button/like-button.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 

@@ -45,7 +45,7 @@
               <p class="iqdropdown-item">ванные комнаты</p>
             </div>
           </div>
-          <button class="button button_theme_simple" type="reset">Очистить</button>
+          <button class="button button_theme_simple" type="reset" onclick="resetCounts()">Очистить</button>
           <button class="button button_theme_simple-colorized" type="submit">Применить</button>
         </div>
       </div>
@@ -74,17 +74,13 @@
         <p class="label">radio buttons</p>
       </div>
       <div class="radio-buttons-wrapper">
-        <div class="radio-button-wrapper">
-          <div class="radio-button">
-            <input class="radio-button__radio" type="radio" id="man" name="gender">
-            <label class="radio-button__label-radio text" for="man">Мужчина</label>
-          </div>
+        <div class="radio-button">
+          <input class="radio-button__radio" type="radio" id="man" name="gender">
+          <label class="radio-button__label text" for="man">Мужчина</label>
         </div>
-        <div class="radio-button-wrapper">
-          <div class="radio-button">
-            <input class="radio-button__radio" type="radio" id="woman" name="gender">
-            <label class="radio-button__label-radio text" for="woman">Женщина</label>
-          </div>
+        <div class="radio-button">
+          <input class="radio-button__radio" type="radio" id="woman" name="gender">
+          <label class="radio-button__label text" for="woman">Женщина</label>
         </div>
       </div>
     </div>
@@ -98,20 +94,23 @@
     <div class="button-area-wrapper">
       <p class="label">buttons</p>
       <div class="button-wrapper">
-        <button class="button button_theme_simple" type="submit">click</button>
+        <button class="button button_theme_border-background" type="submit">click me</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_simple-colorized" type="submit">click</button>
+        <button class="button button_theme_border" type="submit">click me</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_border" type="submit">click</button>
+        <button class="button button_theme_simple-colorized" type="submit">click me</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_border-background" type="submit">click</button>
+        <button class="button button_theme_simple" type="submit">click me</button>
       </div>
       <div class="button-wrapper">
-        <button class="button button_theme_long" type="submit">click</button>
+        <button class="button button_theme_long" type="submit">перейти к оплате</button>
       </div>
+    </div>
+    <div class="like-button">
+      <div class="like-button__counter"></div>
     </div>
     <div class="bullet-list-area-wrapper">
       <p class="label">bullet list</p>
@@ -132,6 +131,22 @@
       <input class="rich-checkbox-button__checkbox" type="checkbox" id="invalid-assistant" name="invalid-assistant">
       <label class="rich-checkbox-button__label" for="invalid-assistant">Помощьник для инвалидов</label>
       <div class="rich-checkbox-button__description">На 1 этаже вас встретит специалист и проводит до номера.</div>
+    </div>
+    <div class="icon-text">
+      <div class="icon-text__icon">mood</div>
+      <!--.icon-text__icon(style="background:url("+require('../../blocks/icon-text/'+options.image+).default+")")= options.icon-->
+      <div class="icon-text__text">
+        <div class="icon-text__label">Комфорт</div>
+        <div class="icon-text__sublabel">Шумопоглащающие стены</div>
+      </div>
+    </div>
+    <div class="icon-text">
+      <div class="icon-text__icon">location_city</div>
+      <!--.icon-text__icon(style="background:url("+require('../../blocks/icon-text/'+options.image+).default+")")= options.icon-->
+      <div class="icon-text__text">
+        <div class="icon-text__label">Удобство</div>
+        <div class="icon-text__sublabel">Окно в каждой из спален</div>
+      </div>
     </div>
     <div class="range-slider">
       <input class="js-range-slider" type="text" name="my_range" value="">
