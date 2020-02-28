@@ -1,6 +1,7 @@
 .bullet-list {
   &_marker-list {
     list-style: none;
+    padding: 0;
   }
   &_marker-element {
     display: flex;
