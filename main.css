@@ -56,14 +56,6 @@
   src: local("Montserrat Bold"), local("Montserrat-Bold"), url(fonts/montserrat-v14-cyrillic-700.eot?#iefix) format("embedded-opentype"), url(fonts/montserrat-v14-cyrillic-700.woff2) format("woff2"), url(fonts/montserrat-v14-cyrillic-700.woff) format("woff"), url(fonts/montserrat-v14-cyrillic-700.ttf) format("truetype"), url(fonts/montserrat-v14-cyrillic-700.svg#Montserrat) format("svg");
   /* Legacy iOS */ }
 
-.title {
-  font-family: Quicksand;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 30px;
-  color: #1f2041; }
-
 .color-block {
   width: 269.26px;
   height: 70px;
@@ -763,10 +755,12 @@ body {
     border-radius: 22px;
     position: relative;
     flex: 1; }
-    .button_theme_long::before {
+    .button_theme_long::after {
       position: absolute;
       width: 44px;
       height: 44px;
+      right: -10px;
+      top: 0px;
       content: "arrow_forward";
       font-family: Material Icons;
       font-style: normal;
@@ -776,7 +770,8 @@ body {
       display: flex;
       align-items: center;
       text-align: center;
-      color: #ffffff; }
+      color: #ffffff;
+      text-transform: lowercase; }
 
 .bullet-list_marker-list {
   list-style: none; }
@@ -804,13 +799,10 @@ body {
 
 .expandable-checkbox-list {
   align-items: center;
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  border-radius: 4px;
   cursor: pointer;
   display: flex;
   height: 44px;
   justify-content: space-between;
-  padding: 0 15px;
   position: relative;
   width: 100%; }
   .expandable-checkbox-list__title {
@@ -837,19 +829,25 @@ body {
       height: 44px;
       width: 44px;
       position: absolute;
-      right: -16px;
-      top: -2px; }
+      right: -11px;
+      top: -3px; }
   .expandable-checkbox-list__menu {
     background-color: #ffffff;
     cursor: default;
     display: none;
     left: 0;
-    margin: -2px -1px -1px;
+    margin: 5px 0px 0px;
     position: absolute;
     right: 0;
     top: 44px;
     transition: all 0.2s ease-in-out;
     z-index: 99999; }
+
+.js-expandable-checkbox-list_open .expandable-checkbox-list__menu {
+  display: block; }
+
+.js-expandable-checkbox-list_open .expandable-checkbox-list__title::after {
+  content: "keyboard_arrow_up"; }
 
 .rich-checkbox-button {
   display: flex;
@@ -929,8 +927,7 @@ body {
     -webkit-text-fill-color: transparent;
     display: flex;
     align-items: center;
-    text-align: center;
-    color: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%); }
+    text-align: center; }
   .icon-text__text {
     display: flex;
     flex-direction: column;
@@ -961,15 +958,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start; }
-  .like-button_theme_liked {
-    border-color: #bc9cff; }
-    .like-button_theme_liked::before {
-      content: "favorite";
-      background: #bc9cff;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; }
-    .like-button_theme_liked__counter {
-      color: #bc9cff; }
   .like-button::before {
     width: 20px;
     height: 20px;
@@ -993,6 +981,98 @@ body {
     /* identical to box height */
     text-align: center;
     color: rgba(31, 32, 65, 0.25); }
+  .like-button_theme_liked {
+    border-color: #bc9cff; }
+    .like-button_theme_liked::before {
+      content: "favorite";
+      background: #bc9cff;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; }
+    .like-button_theme_liked .like-button__counter {
+      color: #bc9cff; }
+
+.rate-button {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end; }
+  .rate-button__input {
+    display: none; }
+  .rate-button__star {
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 20px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative; }
+  .rate-button__star:before {
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 20px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    content: "star";
+    position: absolute;
+    opacity: 0; }
+  .rate-button__star:hover:before,
+  .rate-button__star:hover ~ .rate-button__star:before {
+    opacity: 1 !important; }
+  .rate-button__input:checked ~ .rate-button__star:before {
+    opacity: 1; }
+  .rate-button:hover__input:checked ~ .rate-button:hover__star:before {
+    opacity: 0.5; }
+
+.date-dropdown {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 44px;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: relative;
+  width: 100%; }
+  .date-dropdown__input {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    /* identical to box height */
+    color: #1f2041;
+    flex: 1;
+    position: relative; }
+    .date-dropdown__input::after {
+      font-family: Material Icons;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 24px;
+      color: rgba(31, 32, 65, 0.75);
+      content: "keyboard_arrow_down";
+      text-transform: lowercase;
+      display: inline-block;
+      height: 44px;
+      width: 44px;
+      position: absolute;
+      right: -40px;
+      top: -3px; }
 
 html,
 body {
@@ -1017,6 +1097,10 @@ body {
 
 .text-block-wrapper {
   margin-bottom: 50px; }
+
+.logo-wrapper {
+  margin-left: 30px;
+  margin-top: 30px; }
 
 .checkboxes-label-wrapper {
   margin-bottom: 16.56; }

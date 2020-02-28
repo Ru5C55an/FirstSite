@@ -155,6 +155,24 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./blocks/datepicker/datepicker.js":
+/*!*****************************************!*\
+  !*** ./blocks/datepicker/datepicker.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var air_datepicker_dist_js_datepicker_min__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! air-datepicker/dist/js/datepicker.min */ "../node_modules/air-datepicker/dist/js/datepicker.min.js");
+/* harmony import */ var air_datepicker_dist_js_datepicker_min__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_js_datepicker_min__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! air-datepicker/dist/css/datepicker.min.css */ "../node_modules/air-datepicker/dist/css/datepicker.min.css");
+/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+/***/ }),
+
 /***/ "./blocks/dropdown/dropdown.js":
 /*!*************************************!*\
   !*** ./blocks/dropdown/dropdown.js ***!
@@ -248,13 +266,55 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  var expanded = false;
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/* eslint-disable no-underscore-dangle */
+
+
+var ExpandableCheckboxList =
+/*#__PURE__*/
+function () {
+  function ExpandableCheckboxList(component) {
+    _classCallCheck(this, ExpandableCheckboxList);
+
+    this.component = component;
+
+    this._attachEventHandler();
+
+    this.$list = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-expandable-checkbox-list', this.$component);
+  }
+
+  _createClass(ExpandableCheckboxList, [{
+    key: "_attachEventHandler",
+    value: function _attachEventHandler() {
+      var _this = this;
+
+      console.log(this.$list);
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-expandable-checkbox-list', this.$component).on('click', function () {
+        return _this.$list.toggleClass('js-expandable-checkbox-list_open');
+      });
+    }
+  }]);
+
+  return ExpandableCheckboxList;
+}();
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-expandable-checkbox-list').each(function (index, node) {
+    // eslint-disable-next-line no-new
+    new ExpandableCheckboxList(node);
+  });
+});
+/*
+$(document).ready(() => {
+  let expanded = false;
 
   function showCheckboxes() {
-    var checkboxes = document.querySelector('.expandable-checkbox-list__menu');
-
+    const checkboxes = document.querySelector('.expandable-checkbox-list__menu');
     if (!expanded) {
       checkboxes.style.display = 'block';
       expanded = true;
@@ -264,6 +324,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     }
   }
 });
+*/
 
 /***/ }),
 
@@ -313,12 +374,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _blocks_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blocks/dropdown/dropdown */ "./blocks/dropdown/dropdown.js");
-/* harmony import */ var _blocks_expandable_checkbox_list_expandable_checkbox_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../blocks/expandable-checkbox-list/expandable-checkbox-list */ "./blocks/expandable-checkbox-list/expandable-checkbox-list.js");
-/* harmony import */ var _blocks_range_slider_range_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../blocks/range-slider/range-slider */ "./blocks/range-slider/range-slider.js");
-/* harmony import */ var _blocks_like_button_like_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../blocks/like-button/like-button */ "./blocks/like-button/like-button.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/style.scss */ "./scss/style.scss");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _blocks_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../blocks/dropdown/dropdown */ "./blocks/dropdown/dropdown.js");
+/* harmony import */ var _blocks_expandable_checkbox_list_expandable_checkbox_list__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../blocks/expandable-checkbox-list/expandable-checkbox-list */ "./blocks/expandable-checkbox-list/expandable-checkbox-list.js");
+/* harmony import */ var _blocks_range_slider_range_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../blocks/range-slider/range-slider */ "./blocks/range-slider/range-slider.js");
+/* harmony import */ var _blocks_like_button_like_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../blocks/like-button/like-button */ "./blocks/like-button/like-button.js");
+/* harmony import */ var _blocks_datepicker_datepicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../blocks/datepicker/datepicker */ "./blocks/datepicker/datepicker.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);
+
+
 
 
 
