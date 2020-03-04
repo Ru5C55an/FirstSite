@@ -1,10 +1,8 @@
 .expandable-checkbox-list {
-  align-items: center;
+  //align-items: center;
   cursor: pointer;
-  display: flex;
-  height: 44px;
-  justify-content: space-between;
-  position: relative;
+  //display: flex;
+  height: 100%;
   width: 100%;
 
   &__title {
@@ -40,16 +38,16 @@
   }
 
   &__menu {
-    background-color: $white;
+    //background-color: $white;
     cursor: default;
     display: none;
-    left: 0;
+    //left: 0;
     margin: 5px 0px 0px;
-    position: absolute;
-    right: 0;
-    top: 44px;
+    //position: absolute;
+    //right: 0;
+    //top: 44px;
     transition: all 0.2s ease-in-out;
-    z-index: 99999;
+    //z-index: 99999;
   }
 }
 
