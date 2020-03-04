@@ -1,8 +1,11 @@
 //include ../../blocks/input/input.pug
 
-mixin text-field(labelText, textPlaceholder, options, pattern)
+mixin text-field(options)
     .text-field
-        //+input(labelText, textPlaceholder, 'text').field-text__input
-        label(class="label text-field__label-input")= labelText
-            input(class="text-field__text-input" placeholder= textPlaceholder type="text" #{$options} pattern= pattern)
+        if options.label
+            label(class="label text-field__label-input")= options.label
+                input(class="text-field__text-input" placeholder= options.placeholder type="text" options.other #{$options} pattern= options.pattern)
+        else
+            input(class="text-field__text-input" placeholder= options.placeholder type="text" options.other #{$options} pattern= options.pattern)
+
         
