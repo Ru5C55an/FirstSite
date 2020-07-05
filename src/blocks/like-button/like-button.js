@@ -4,9 +4,9 @@ import $ from 'jquery';
 class LikeButton {
   constructor(component) {
     this.component = component;
-    this.$clicks = $('.js-like-button__counter', this.component).html();
-    this._attachEventHandler();
     this.$counter = $('.js-like-button__counter', this.component);
+    this.$clicks = this.$counter.html();
+    this._attachEventHandler();
   }
 
   _attachEventHandler() {
