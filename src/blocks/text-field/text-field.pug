@@ -3,9 +3,9 @@
 mixin text-field(options)
     .text-field
         if options.label
-            label(class="label text-field__label-input")= options.label
-                input(class="text-field__text-input" placeholder= options.placeholder type="text" options.other #{$options} pattern= options.pattern)
+            label(class="label text-field__label")= options.label
+                input(class="text-field__text" placeholder= options.placeholder type="text" options.other #{$options} pattern= options.pattern)
         else
-            input(class="text-field__text-input" placeholder= options.placeholder type="text" options.other #{$options} pattern= options.pattern)
+            input(class="text-field__text" placeholder= options.placeholder type="text" options.other #{$options} pattern= options.pattern)
 
         
