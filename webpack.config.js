@@ -122,7 +122,7 @@ const plugins = () => {
     // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
     ...PAGES.map(page => new HtmlWebpackPlugin({
 		template: `${PAGES_DIR}/${page}`,
-		filename: `./${page.replace(/\.pug/,'.html')}`,
+		filename: `${page.replace(/\.pug/,'.html')}`,
 		minify: {
 			collapseWhitespace: isProd //Минимизация html в режиме продакшена
 		}
@@ -149,7 +149,7 @@ const fs = require('fs')
 // Pages const for HtmlWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 // const PAGES_DIR = PATHS.src
-const PAGES_DIR = `${PATHS.src}/pug/pages/`
+const PAGES_DIR = `${PATHS.src}/pug/pages`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 
 //Настройка самого модуля
@@ -171,6 +171,7 @@ module.exports = {
   	output: {
     	path: path.resolve(__dirname, 'dist'),
 		filename: filename('js'),
+		//filename: 'scripts/[name].js',
 		//Обновление путей (например для путей картинок)
 		//publicPath: '/dist'
 	},
